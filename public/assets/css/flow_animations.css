@@ -1,0 +1,25 @@
+@keyframes fade {
+    0% {
+        filter: opacity(0);
+    }
+
+    20% {
+        filter: opacity(1);
+    }
+
+    70% {
+        filter: opacity(1);
+
+    }
+
+    100% {
+        filter: opacity(0);
+        display: none;
+        z-index: -20;
+    }
+}
+
+@keyframes button{
+    0%{transform: rotateX(0);}
+    100%{transform: rotateX(90);}
+}

@@ -1,0 +1,249 @@
+body,
+html {
+    margin: 0;
+    background-color: #1B1B1B;
+    color: white;
+    font-family: Raleway;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+p,
+h1,
+h2,
+h3,
+a,
+span {
+    text-shadow: 2px 2px 1px black;
+}
+
+/* Clases generales */
+.text-white {
+    color: white;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.w-50 {
+    width: 50%;
+    margin: auto;
+}
+
+#loader {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    animation: fade 2.5s linear forwards;
+    animation-iteration-count: 1;
+}
+
+.loader-content {
+    max-width: 50%;
+    height: 100%;
+    margin: auto auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-image {
+    height: 60vh;
+}
+
+.loader-title {
+    font-family: WeWrestle;
+    margin: 0;
+    font-size: 60px;
+}
+
+.content {
+    border: 20px solid transparent;
+    border-radius: 50px;
+    padding: 30px;
+    border-image: url(../img/leopardo.png) 30 round;
+}
+
+.header-title {
+    text-align: center;
+    font-size: 40px;
+}
+
+.header-subtitle {
+    font-size: 18px;
+    text-align: center;
+    margin: 30px auto;
+    line-height: 30px;
+}
+
+.warning {
+    padding: 10px;
+    background: rgba(255, 0, 0, 0.8);
+    border-radius: 10px;
+
+}
+
+.form-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+.form-input,
+.form-button,
+.input-divider {
+    margin: 20px 0;
+    padding: 15px 10px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-size: 18px;
+    color: white;
+}
+
+.input-split {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.form-input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 100%;
+    border-left: 0;
+}
+
+.form-input:focus {
+    outline: none;
+}
+
+.input-divider {
+    font-size: 18px;
+    border: 2px solid white;
+    padding: 15px 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-button:hover {
+    background-color: white;
+    color: black;
+    /* TODO: Imagen del rey misterio  */
+    cursor: pointer;
+}
+
+.results {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.result {
+    width: 100%;
+    color: black;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.result-name,
+.result-username,
+.result-link {
+    text-shadow: none;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+
+.result-link {
+    padding: 10px 15px;
+    border: 1px solid #1B1B1B;
+    border-radius: 15px;
+}
+
+.result-username {
+    font-weight: bold;
+}
+
+.result-avatar {
+    margin: auto;
+    height: 75px;
+    width: 75px;
+    border-radius: 50px;
+}
+
+@media only screen and (min-width:786px) {}
+
+@media only screen and (min-width:1024px) {}
+
+@media only screen and (min-width:1280px) {}
+
+@media only screen and (min-width:1440px) {}
+
+@media only screen and (min-width:1560px) {}
+
+@media only screen and (min-width:1920px) {
+    .loader-title {
+        font-size: 100px;
+    }
+
+    .loader-image {
+        width: auto;
+        height: 500px;
+    }
+
+    .content {
+        max-width: 70%;
+        margin: auto;
+    }
+
+    .header-subtitle {
+        width: 50%;
+
+    }
+
+    .form-input,
+    .form-button,
+    .input-divider {
+        font-size: 24px;
+    }
+
+    .form-content {
+        max-width: 30%;
+
+    }
+
+
+
+    .results {
+        flex-flow: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .result {
+        width: 20%;
+    }
+
+
+
+}
