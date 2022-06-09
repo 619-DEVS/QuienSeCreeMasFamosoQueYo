@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+// This is a test
 const express = require('express');
 const cors = require('cors');
 const { notFollowing, notFollowingMe } = require('./compareFiles');
