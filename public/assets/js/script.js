@@ -1,18 +1,11 @@
 async function sendData(url) {
     var loader = document.getElementById('loader').classList;
     loader.add('fadeIn');
-
     var user = document.getElementById('username').value;
-    var usersNotFollowing = [];
 
 
     if (user) {
-        // axios.post('http://localhost:3000/not-following-me', { username: user }).then(resp => {
-        //     loader.remove('fadeIn');
-        //     loader.add('fadeOut');
-        // });
-
-        const response = await axios.post('http://quiensecreemasfamosoqueyo.herokuapp.com:3000/' + url, { username: user });
+        const response = await axios.post('https://quiensecreemasfamosoqueyo.herokuapp.com/' + url, { username: user });
         document.getElementById('results').innerHTML = '';
         loader.remove('fadeIn');
         loader.add('fadeOut');
