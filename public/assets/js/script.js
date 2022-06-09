@@ -12,7 +12,7 @@ async function sendData(url) {
         //     loader.add('fadeOut');
         // });
 
-        const response = await axios.post('http://localhost:3000/' + url, { username: user });
+        const response = await axios.post('http://quiensecreemasfamosoqueyo.herokuapp.com:3000/' + url, { username: user });
         document.getElementById('results').innerHTML = '';
         loader.remove('fadeIn');
         loader.add('fadeOut');
