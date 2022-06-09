@@ -6,6 +6,7 @@ async function sendData(url) {
 
     if (user) {
         const response = await axios.post('https://quiensecreemasfamosoqueyo.herokuapp.com/' + url, { username: user });
+        // const response = await axios.post('http://localhost:3000/' + url, { username: user });
         document.getElementById('results').innerHTML = '';
         loader.remove('fadeIn');
         loader.add('fadeOut');
