@@ -9,10 +9,10 @@ const app = express();
 const port = process.env.PORT;
 const router = express.Router();
 
+app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: false, limit: '15mb' }));
 app.use(express.json({ limit: '15mb' }));
-app.use(cors());
 
 
 // Rutas
