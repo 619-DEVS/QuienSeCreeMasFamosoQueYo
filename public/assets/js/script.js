@@ -5,7 +5,7 @@ async function sendData(url) {
 
 
     if (user) {
-        const response = await axios.post('http://localhost:619/' + url, { username: user });
+        const response = await axios.post('http://80.88.90.58:619/' + url, { username: user });
         // const response = await axios.post('http://localhost:3000/' + url, { username: user });
         document.getElementById('results').innerHTML = '';
         loader.remove('fadeIn');
