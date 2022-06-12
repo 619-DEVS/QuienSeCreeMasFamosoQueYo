@@ -31,4 +31,4 @@ router.post('/not-following', async (req, res) => {
 app.use(router);
 
 
-app.listen(port, () => console.log(`APP DE GORDO [Puerto: ${port}]`));
+app.listen(port, () => console.log(`APP DE PITO [Puerto: ${port}]`));
