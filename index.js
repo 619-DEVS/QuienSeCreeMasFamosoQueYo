@@ -20,12 +20,12 @@ router.post('/not-following-me', async (req, res) => {
 
     const responseData = await loadData(req.body.username);
     if (responseData?.status == 'error') {
-        return res.status(200).json(responseData);
+        return res.status(500).json(responseData);
     }
 
     const response = notFollowingMe(req.body.username);
     if (response?.status == 'error') {
-        return res.status(200).json(response);
+        return res.status(400).json(response);
     }
     return res.status(200).json({ 'data': response });
 });
@@ -34,12 +34,12 @@ router.post('/not-following', async (req, res) => {
     const responseData = await loadData(req.body.username);
 
     if (responseData?.status == 'error') {
-        return res.status(200).json(responseData);
+        return res.status(500).json(responseData);
     }
 
     const response = notFollowing(req.body.username);
     if (response?.status == 'error') {
-        return res.status(200).json(response);
+        return res.status(400).json(response);
     }
     return res.status(200).json({ 'data': response });
 });
