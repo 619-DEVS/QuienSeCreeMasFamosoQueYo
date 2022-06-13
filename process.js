@@ -5,30 +5,38 @@ var ig = '';
 
 async function loadData(username) {
     if (fs.existsSync('./output/' + username + '-' + getCurrentDate() + '_followers.json')) {
-        console.log('existe', username);
         return
     }
 
     if (fs.existsSync('./output/' + username + '-' + getCurrentDate() + '_following.json')) {
-
-        console.log('existe', username);
         return
     }
 
-    if(ig == ''){
+    if (ig == '') {
         ig = await login();
     }
 
-    let info = await getUserInfo(ig, username);
+    try {
+        await getUserInfo(ig, username);
+    } catch (error) {
+        return { status: 'error', name: 'UserNotFound' }
+    }
 
+    try {
+        await getFollowers(ig, username);
+    } catch (error) {
+        return { status: 'error', name: 'CantGetFollows' }
+    }
 
-    await getFollowers(ig, username);
-    setFileName('./output/' + username + '_followers.json', 'followers', username);
+    try {
+        await getFollowing(ig, username);
+    } catch (error) {
+        return { status: 'error', name: 'CantGetFollowing' }
+    }
 
-    await getFollowing(ig, username);
-    setFileName('./output/' + username + '_following.json', 'following', username);
+    setFileName('followers', username);
+    setFileName('following', username);
 
-    console.log("\nProcess done!\n".green);
 };
 
 function getCurrentDate() {
@@ -41,7 +49,8 @@ function getCurrentDate() {
     return `${year}-${month}-${day}-${hours}`
 }
 
-function setFileName(file, type, username) {
+function setFileName(type, username) {
+    var file = `./output/${username}_${type}.json`;
     var name = `./output/${username}-${getCurrentDate()}_${type}.json`;
     fs.renameSync(file, name);
 }

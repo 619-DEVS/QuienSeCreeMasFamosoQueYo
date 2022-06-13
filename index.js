@@ -17,16 +17,33 @@ app.use(express.json({ limit: '15mb' }));
 
 // Rutas
 router.post('/not-following-me', async (req, res) => {
-    await loadData(req.body.username);
+
+    const responseData = await loadData(req.body.username);
+    if (responseData?.status == 'error') {
+        return res.status(200).json(responseData);
+    }
+
     const response = notFollowingMe(req.body.username);
+    if (response?.status == 'error') {
+        return res.status(200).json(response);
+    }
     return res.status(200).json({ 'data': response });
 });
 
 router.post('/not-following', async (req, res) => {
-    await loadData(req.body.username);
+    const responseData = await loadData(req.body.username);
+
+    if (responseData?.status == 'error') {
+        return res.status(200).json(responseData);
+    }
+
     const response = notFollowing(req.body.username);
+    if (response?.status == 'error') {
+        return res.status(200).json(response);
+    }
     return res.status(200).json({ 'data': response });
 });
+
 
 app.use(router);
 
