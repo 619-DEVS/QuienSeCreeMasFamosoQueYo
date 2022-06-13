@@ -52,7 +52,12 @@ router.post('/fingerprint', async (req, res) => {
 
 router.get('/fingerprint/:fingerprint', async (req, res) => {
     const response = getFingerprint(req.params.fingerprint);
-    return res.status(200).json({'fingerprint': req.params.fingerprint})
+    return res.status(200).json({'fingerprint':response})
+});
+
+router.put('/fingerprint/:fingerprint', async (req, res) => {
+    const response = changeFingerprint(req.params.fingerprint);
+    return res.status(200).json({});
 });
 
 router.delete('/fingerprint/:fingerprint', )
