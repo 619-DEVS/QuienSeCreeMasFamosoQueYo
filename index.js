@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const { notFollowing, notFollowingMe } = require('./compareFiles');
 const { loadData } = require('./process');
-const {getFingerprint, setFingerprint, removeFingerprint} = require('./fingerprint');
+const {getFingerprint, setFingerprint, removeFingerprint, changeFingerprint} = require('./fingerprint');
 
 const app = express();
 const port = process.env.PORT;

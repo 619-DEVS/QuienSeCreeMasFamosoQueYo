@@ -29,4 +29,4 @@ function writeFile(){
 
 
 
-module.exports = {setFingerprint, getFingerprint, removeFingerprint}
+module.exports = {setFingerprint, getFingerprint, removeFingerprint, changeFingerprint}
