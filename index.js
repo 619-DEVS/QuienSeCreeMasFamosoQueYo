@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const { notFollowing, notFollowingMe } = require('./compareFiles');
 const { loadData } = require('./process');
+const {getFingerprint, setFingerprint, removeFingerprint} = require('./fingerprint');
 
 const app = express();
 const port = process.env.PORT;
@@ -43,6 +44,19 @@ router.post('/not-following', async (req, res) => {
     }
     return res.status(200).json({ 'data': response });
 });
+
+router.post('/fingerprint', async (req, res) => {
+    const response = setFingerprint(req.body.fingerprint);
+    if (response) res.status(204);
+});
+
+router.get('/fingerprint/:fingerprint', async (req, res) => {
+    const response = getFingerprint(req.params.fingerprint);
+    if (response) return res.status(200).json({'fingerprint': req.params.fingerprint})
+    return res.status(400).json({'message': 'na en verdad, solo que lo tengo que poner xDD'});
+});
+
+router.delete('/fingerprint/:fingerprint', )
 
 
 app.use(router);
