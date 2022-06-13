@@ -3,7 +3,7 @@ const fingerprints = JSON.parse(fs.readFileSync('./fingerprints.json'));
 
 function setFingerprint(fingerprint) {
     fingerprints[fingerprint] = false;
-    writeFile();
+    fs.writeFileSync('./fingerprints.json', JSON.stringify(fingerprints));
     return true;
 }
 
@@ -13,18 +13,13 @@ function getFingerprint(fingerprint) {
 
 function removeFingerprint(fingerprint) {
     if (fingerprints[fingerprint]) delete fingerprints[fingerprint];
-    writeFile();
+    fs.writeFileSync('./fingerprints.json', JSON.stringify(fingerprints));
     return true;
 }
 
 function changeFingerprint(fingerprint, value) {
-    fingerprints[fingerprint] = value;
-    writeFile();
+    fingerprints[fingerprint] = value
     return true;
-}
-
-function writeFile(){
-    fs.writeFileSync('./fingerprints.json', JSON.stringify(fingerprints));
 }
 
 
