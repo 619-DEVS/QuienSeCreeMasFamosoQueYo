@@ -52,8 +52,7 @@ router.post('/fingerprint', async (req, res) => {
 
 router.get('/fingerprint/:fingerprint', async (req, res) => {
     const response = getFingerprint(req.params.fingerprint);
-    if (response) return res.status(200).json({'fingerprint': req.params.fingerprint})
-    return res.status(400).json({'message': 'na en verdad, solo que lo tengo que poner xDD'});
+    return res.status(200).json({'fingerprint': req.params.fingerprint})
 });
 
 router.delete('/fingerprint/:fingerprint', )
