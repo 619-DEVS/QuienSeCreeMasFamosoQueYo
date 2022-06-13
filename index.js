@@ -56,7 +56,9 @@ router.get('/fingerprint/:fingerprint', async (req, res) => {
 });
 
 router.put('/fingerprint/:fingerprint', async (req, res) => {
-    const response = changeFingerprint(req.params.fingerprint);
+    console.log('::value', req.body.value);
+    
+    const response = changeFingerprint(req.params.fingerprint, req.body.value);
     return res.status(200).json({});
 });
 

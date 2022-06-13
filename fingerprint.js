@@ -17,8 +17,8 @@ function removeFingerprint(fingerprint) {
     return true;
 }
 
-function changeFingerprint(fingerprint) {
-    fingerprints[fingerprint] = !fingerprints[fingerprint]
+function changeFingerprint(fingerprint, value) {
+    fingerprints[fingerprint] = value;
     writeFile();
     return true;
 }
