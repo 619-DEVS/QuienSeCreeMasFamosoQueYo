@@ -47,7 +47,7 @@ router.post('/not-following', async (req, res) => {
 
 router.post('/fingerprint', async (req, res) => {
     const response = setFingerprint(req.body.fingerprint);
-    if (response) res.status(204);
+    res.status(204);
 });
 
 router.get('/fingerprint/:fingerprint', async (req, res) => {
